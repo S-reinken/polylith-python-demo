@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "cli_project2"
+version = "0.1.0"
+description = ""
+authors = ["Schuyler Reinken <Schuyler.Reinken@va.gov>"]
+license = ""
+
+packages = [
+    {include = "TestPolylith/test_cli2", from = "../../bases"},
+    {include = "TestPolylith/TestComponentA",from = "../../components"},
+    {include = "TestPolylith/TestComponentB",from = "../../components"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.12.5"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+test-command = "TestPolylith.test_cli2.core:app"
